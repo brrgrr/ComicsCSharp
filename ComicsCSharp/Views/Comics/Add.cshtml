@@ -1,7 +1,15 @@
-﻿<h2>Add Comics</h2>
+﻿@model ComicsCSharp.Models.Comic
+
+<h2>Add Comics</h2>
+
+<div asp-validation-summary="All"></div>
 
 <form method="post" action="/Comics/add">
-    <label>Issue # <input type="number" size="3" name="issueNumber" /></label>
-    <label>Title <input type="text" name="title" /></label>
+    <label asp-for="IssueNumber"></label><input asp-for="IssueNumber" />
+    <label asp-for="Title"></label><input asp-for="Title" />
+    <label asp-for="Grade"></label>
+    <select asp-for="Grade" asp-items="Model.SelectItems">
+
+    </select>
     <button>Add</button>
 </form>

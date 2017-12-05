@@ -21,8 +21,13 @@ namespace ComicsCSharp.Controllers
         [HttpPost]
         public IActionResult Add(Comic comic)
         {
-            ComicsData.Add(comic);
-            return Redirect("/Comics");
+            if (ModelState.IsValid)
+            {
+                ComicsData.Add(comic);
+                return Redirect("/Comics");
+            }
+            // else
+            return View();
         }
 
         [HttpPost]
